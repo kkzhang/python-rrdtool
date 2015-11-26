@@ -29530,7 +29530,7 @@ if test "${am_cv_pathless_PYTHON+set}" = set; then
   $as_echo_n "(cached) " >&6
 else
 
-	for am_cv_pathless_PYTHON in python python2 python3 python3.0 python2.5 python2.4 python2.3 python2.2 python2.1 python2.0 none; do
+	for am_cv_pathless_PYTHON in python3 python2 python3 python3.0 python2.5 python2.4 python2.3 python2.2 python2.1 python2.0 none; do
 	  test "$am_cv_pathless_PYTHON" = none && break
 	  prog="import sys
 # split strings by '.' and convert to numeric.  Append some zeros
@@ -29707,11 +29707,11 @@ $as_echo "$am_cv_python_pyexecdir" >&6; }
 
 { $as_echo "$as_me:$LINENO: checking for headers required to compile python extensions" >&5
 $as_echo_n "checking for headers required to compile python extensions... " >&6; }
-py_prefix=`$PYTHON -c "import sys; print sys.prefix"`
-py_exec_prefix=`$PYTHON -c "import sys; print sys.exec_prefix"`
-PYTHON_INCLUDES="-I${py_prefix}/include/python${PYTHON_VERSION}"
+py_prefix=`$PYTHON -c "import sys; print(sys.prefix)"`
+py_exec_prefix=`$PYTHON -c "import sys; print(sys.exec_prefix)"`
+PYTHON_INCLUDES="-I${py_prefix}/include/python${PYTHON_VERSION} -I${py_prefix}/include/python${PYTHON_VERSION}m"
 if test "$py_prefix" != "$py_exec_prefix"; then
-  PYTHON_INCLUDES="$PYTHON_INCLUDES -I${py_exec_prefix}/include/python${PYTHON_VERSION}"
+  PYTHON_INCLUDES="$PYTHON_INCLUDES -I${py_exec_prefix}/include/python${PYTHON_VERSION} -I${py_exec_prefix}/include/python${PYTHON_VERSION}m"
 fi
 
 save_CPPFLAGS="$CPPFLAGS"

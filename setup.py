@@ -94,7 +94,7 @@ setup(
         Extension(
             "rrdtool",
             [SOURCE + "/bindings/python/rrdtoolmodule.c"],
-            libraries=['rrd'],
+            libraries=['rrd', 'pango-1.0', 'pangocairo-1.0', 'png', 'glib-2.0', 'gobject-2.0', 'cairo'],
             library_dirs=[library_dir],
             include_dirs=[include_dir],
         )
